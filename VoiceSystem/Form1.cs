@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Speech.Synthesis;
 using System.IO;
+using System.Media;
 
 namespace VoiceSystem
 {
@@ -30,6 +31,18 @@ namespace VoiceSystem
         /// 输出按钮是否处于工作状态（默认为否）
         /// </summary>
         private bool _isOutputWorking = false;
+        /// <summary>
+        /// 音频文件名称路径字典
+        /// </summary>
+        private Dictionary<string, string> _fileNameToPath = new Dictionary<string, string>();
+        /// <summary>
+        /// 音频播放器
+        /// </summary>
+        private SoundPlayer _player = new SoundPlayer();
+        /// <summary>
+        /// 当前选择音频文件名称（不带后缀）
+        /// </summary>
+        private string _currentSelected;
         public Form1()
         {
             InitializeComponent();
@@ -148,6 +161,8 @@ namespace VoiceSystem
             //输出到本地的音频文件
             _speechSynthesizer.SetOutputToWaveFile(Path.Combine(outputDir, fileName + ".wav"));
             _speechSynthesizer.SpeakAsync(rtxtInput.Text);
+
+            UpdateListFiles();
         }
         /// <summary>
         /// 初始化动作
@@ -159,7 +174,8 @@ namespace VoiceSystem
             comboBoxVoices.DataSource = GetVoiceNames();
             ManualInvokeEvent();
             tsLabelState.Text = _speechSynthesizer.State.ToString();
-            listBoxFiles.DataSource = Directory.GetFiles(outputDir).Select(f => Path.GetFileNameWithoutExtension(f)).ToList();
+            UpdateListFiles();
+            //listBoxFiles.DataSource = Directory.GetFiles(outputDir).Select(f => Path.GetFileNameWithoutExtension(f)).ToList();
         }
         List<string> GetVoiceNames()
         {
@@ -330,6 +346,48 @@ namespace VoiceSystem
         void UpdateProgressMaxium()
         {
             tsProgress.Maximum = rtxtInput.Text.Length;
+        }
+        /// <summary>
+        /// 更新语音文件列表显示
+        /// </summary>
+        void UpdateListFiles()
+        {
+            _fileNameToPath.Clear();
+            foreach (var file in Directory.GetFiles(outputDir))
+            {
+                var name = Path.GetFileNameWithoutExtension(file);
+                _fileNameToPath.Add(name, file);
+            }
+            listBoxFiles.DataSource = _fileNameToPath.Select(kv => kv.Key).ToList();
+        }
+
+        private void listBoxFiles_DoubleClick(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(_currentSelected))
+            {
+                _player.SoundLocation = _fileNameToPath[_currentSelected];
+                _player.LoadAsync();
+                _player.Play();
+            }
+        }
+
+        private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(_currentSelected))
+            {
+                var path = _fileNameToPath[_currentSelected];
+                path = Path.GetFullPath(path);
+                if (DialogResult.Yes == UIHelper.ShowWarning("删除文件", string.Format("是否删除音频文件：{0}", path)))
+                {
+                    File.Delete(path);
+                    UpdateListFiles();
+                }
+            }
+        }
+
+        private void listBoxFiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _currentSelected = ((ListBox)sender).SelectedItem?.ToString();
         }
     }
 }

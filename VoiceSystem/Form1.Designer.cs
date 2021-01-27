@@ -29,6 +29,7 @@ namespace VoiceSystem
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -58,6 +59,8 @@ namespace VoiceSystem
             this.trackBarVolume = new System.Windows.Forms.TrackBar();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gpOutput.SuspendLayout();
@@ -66,6 +69,7 @@ namespace VoiceSystem
             this.gpSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVolume)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -147,6 +151,7 @@ namespace VoiceSystem
             // 
             // listBoxFiles
             // 
+            this.listBoxFiles.ContextMenuStrip = this.contextMenuStrip1;
             this.listBoxFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxFiles.FormattingEnabled = true;
             this.listBoxFiles.ItemHeight = 15;
@@ -154,6 +159,8 @@ namespace VoiceSystem
             this.listBoxFiles.Name = "listBoxFiles";
             this.listBoxFiles.Size = new System.Drawing.Size(323, 81);
             this.listBoxFiles.TabIndex = 12;
+            this.listBoxFiles.SelectedIndexChanged += new System.EventHandler(this.listBoxFiles_SelectedIndexChanged);
+            this.listBoxFiles.DoubleClick += new System.EventHandler(this.listBoxFiles_DoubleClick);
             // 
             // label8
             // 
@@ -163,7 +170,7 @@ namespace VoiceSystem
             this.label8.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.label8.Size = new System.Drawing.Size(323, 37);
             this.label8.TabIndex = 11;
-            this.label8.Text = "历史音频文件";
+            this.label8.Text = "历史音频文件（双击播放）";
             this.label8.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // panel2
@@ -346,6 +353,22 @@ namespace VoiceSystem
             this.label7.Size = new System.Drawing.Size(329, 39);
             this.label7.TabIndex = 16;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.删除ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(109, 28);
+            this.contextMenuStrip1.Text = "删除";
+            // 
+            // 删除ToolStripMenuItem
+            // 
+            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.删除ToolStripMenuItem.Text = "删除";
+            this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -371,6 +394,7 @@ namespace VoiceSystem
             this.gpSetting.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVolume)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -406,6 +430,8 @@ namespace VoiceSystem
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListBox listBoxFiles;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
     }
 }
 
