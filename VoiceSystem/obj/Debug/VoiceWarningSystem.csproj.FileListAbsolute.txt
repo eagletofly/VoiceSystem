@@ -1,0 +1,10 @@
+E:\Demo\VoiceWarningSystem\VoiceWarningSystem\bin\Debug\VoiceWarningSystem.exe.config
+E:\Demo\VoiceWarningSystem\VoiceWarningSystem\bin\Debug\VoiceWarningSystem.exe
+E:\Demo\VoiceWarningSystem\VoiceWarningSystem\bin\Debug\VoiceWarningSystem.pdb
+E:\Demo\VoiceWarningSystem\VoiceWarningSystem\obj\Debug\VoiceWarningSystem.csprojAssemblyReference.cache
+E:\Demo\VoiceWarningSystem\VoiceWarningSystem\obj\Debug\VoiceWarningSystem.Form1.resources
+E:\Demo\VoiceWarningSystem\VoiceWarningSystem\obj\Debug\VoiceWarningSystem.Properties.Resources.resources
+E:\Demo\VoiceWarningSystem\VoiceWarningSystem\obj\Debug\VoiceWarningSystem.csproj.GenerateResource.cache
+E:\Demo\VoiceWarningSystem\VoiceWarningSystem\obj\Debug\VoiceWarningSystem.csproj.CoreCompileInputs.cache
+E:\Demo\VoiceWarningSystem\VoiceWarningSystem\obj\Debug\VoiceWarningSystem.exe
+E:\Demo\VoiceWarningSystem\VoiceWarningSystem\obj\Debug\VoiceWarningSystem.pdb
