@@ -63,6 +63,7 @@ namespace VoiceSystem
         /// <returns>返回DialogResult.Yes或DialogResult.No</returns>
         public static DialogResult ShowWarning(string title, string content)
         {
+            //this is a test
             return MessageBox.Show(content, title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
         /// <summary>
@@ -78,6 +79,10 @@ namespace VoiceSystem
         public static void Test2()
         {
             //新的修改
+        }
+        public static void testc()
+        {
+            //
         }
     }
 }
