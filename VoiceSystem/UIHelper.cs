@@ -75,5 +75,9 @@ namespace VoiceSystem
         {
             return (T)Enum.Parse(typeof(T), obj.ToString());
         }
+        public static void Test2()
+        {
+            //新的修改
+        }
     }
 }
