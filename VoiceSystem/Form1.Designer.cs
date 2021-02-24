@@ -40,6 +40,8 @@ namespace VoiceSystem
             this.panel1 = new System.Windows.Forms.Panel();
             this.gpOutput = new System.Windows.Forms.GroupBox();
             this.listBoxFiles = new System.Windows.Forms.ListBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label8 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtFileName = new System.Windows.Forms.TextBox();
@@ -59,17 +61,15 @@ namespace VoiceSystem
             this.trackBarVolume = new System.Windows.Forms.TrackBar();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gpOutput.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.gpTry.SuspendLayout();
             this.gpSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVolume)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -161,6 +161,22 @@ namespace VoiceSystem
             this.listBoxFiles.TabIndex = 12;
             this.listBoxFiles.SelectedIndexChanged += new System.EventHandler(this.listBoxFiles_SelectedIndexChanged);
             this.listBoxFiles.DoubleClick += new System.EventHandler(this.listBoxFiles_DoubleClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.删除ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(109, 28);
+            this.contextMenuStrip1.Text = "删除";
+            // 
+            // 删除ToolStripMenuItem
+            // 
+            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.删除ToolStripMenuItem.Text = "删除";
+            this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
             // 
             // label8
             // 
@@ -353,22 +369,6 @@ namespace VoiceSystem
             this.label7.Size = new System.Drawing.Size(329, 39);
             this.label7.TabIndex = 16;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.删除ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(109, 28);
-            this.contextMenuStrip1.Text = "删除";
-            // 
-            // 删除ToolStripMenuItem
-            // 
-            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.删除ToolStripMenuItem.Text = "删除";
-            this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -387,6 +387,7 @@ namespace VoiceSystem
             this.statusStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.gpOutput.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.gpTry.ResumeLayout(false);
@@ -394,7 +395,6 @@ namespace VoiceSystem
             this.gpSetting.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVolume)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

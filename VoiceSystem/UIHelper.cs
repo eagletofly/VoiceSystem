@@ -63,6 +63,7 @@ namespace VoiceSystem
         /// <returns>返回DialogResult.Yes或DialogResult.No</returns>
         public static DialogResult ShowWarning(string title, string content)
         {
+            //this is a test
             return MessageBox.Show(content, title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
         /// <summary>
@@ -74,6 +75,10 @@ namespace VoiceSystem
         public static T ParseEnumObject<T>(object obj) where T : Enum
         {
             return (T)Enum.Parse(typeof(T), obj.ToString());
+        }
+        public static void testc()
+        {
+            //
         }
     }
 }
